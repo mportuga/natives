@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isaacs/natives.git"
+    "url": "git+https://github.com/addaleax/natives.git"
   },
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/isaacs/natives/issues"
+    "url": "https://github.com/addaleax/natives/issues"
   },
-  "homepage": "https://github.com/isaacs/natives#readme",
+  "homepage": "https://github.com/addaleax/natives#readme",
   "devDependencies": {
     "tap": "^11.0.0"
   },
