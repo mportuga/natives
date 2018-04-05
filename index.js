@@ -70,7 +70,11 @@ function req_ (id, cache) {
         return wrap[0] + script + wrap[1]
       },
       wrapper: wrap,
-      _cache: cache
+      _cache: cache,
+      _source: natives,
+      nonInternalExists: function (id) {
+        return id.indexOf('internal/') !== 0;
+      }
     }
   }
 
@@ -84,7 +88,7 @@ function req_ (id, cache) {
     if (cache[id]) {
       return cache[id].exports
     }
-    if (id === 'internal/bootstrap/loaders') {
+    if (id === 'internal/bootstrap/loaders' || id === 'internal/process') {
       // Provide just enough to keep `graceful-fs@3` working and tests passing.
       // For now.
       return {
