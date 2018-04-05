@@ -10,9 +10,13 @@ var runInThisContext, ContextifyScript, Script
 /*istanbul ignore next*/
 try {
   ContextifyScript = process.binding('contextify').ContextifyScript;
-  runInThisContext = function runInThisContext(code, options) {
-    var script = new ContextifyScript(code, options);
-    return script.runInThisContext();
+  if (process.version.split('.')[0].length > 2) {  // v10.0.0 and above
+    runInThisContext = vm.runInThisContext;
+  } else {
+    runInThisContext = function runInThisContext(code, options) {
+      var script = new ContextifyScript(code, options);
+      return script.runInThisContext();
+    }
   }
 } catch (er) {
   Script = process.binding('evals').NodeScript;
