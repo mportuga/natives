@@ -10,6 +10,7 @@ var runInThisContext, ContextifyScript, Script
 /*istanbul ignore next*/
 try {
   ContextifyScript = process.binding('contextify').ContextifyScript;
+  /*istanbul ignore next*/
   if (process.version.split('.')[0].length > 2) {  // v10.0.0 and above
     runInThisContext = vm.runInThisContext;
   } else {
@@ -133,6 +134,7 @@ function req_ (id, cache) {
     nm.loaded = true
   } finally {
     nm.loading = false
+    /*istanbul ignore next*/
     if (setV8Flags) {
       // Ref: https://github.com/nodejs/node/blob/591a24b819d53a555463b1cbf9290a6d8bcc1bcb/lib/internal/bootstrap_node.js#L429-L434
       var re = /^--allow[-_]natives[-_]syntax$/
